@@ -1,0 +1,6 @@
+#process .active{
+	color:red;
+}
+#process,#result,#edit{
+	display:none;
+}

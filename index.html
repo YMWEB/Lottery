@@ -1,0 +1,34 @@
+<html ng-app='myLottery'>
+<head><title>Lottery App</title>
+<script src="lib/angular.min.js"></script>
+<script src="function.js"></script>
+<link rel="stylesheet" href="style.css"></link>
+</head>
+<body ng-controller="lotteryController">
+	<div id="start">
+		<button ng-click="start()">Start</button>
+	</div>
+	<div id="process">
+		<div ng-repeat="item in items" id="{{item.id}}" ng-class="{'active':item.status}">{{item.name}}</div>
+	</div>
+	
+	<div id="result">
+		<button ng-click="restart()">Restart</button>
+		<button>Edit</button>
+		<p>{{result}}</p>
+	</div>
+	<div id="edit">
+		<button>Return</button>
+		<input type="text"></input>
+		<button>Add</button>
+		<ul>
+			<li ng-repeat="item in items">
+				<span>{{item.name}}</span>
+				<span><button>Delete</button></span>
+
+			</li>
+		</ul>
+	</div>
+</div>
+	</body>
+	</html>
