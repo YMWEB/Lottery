@@ -14,17 +14,21 @@
 	
 	<div id="result">
 		<button ng-click="restart()">Restart</button>
-		<button>Edit</button>
+		<button ng-click="edit()">Edit</button>
 		<p>{{result}}</p>
 	</div>
 	<div id="edit">
-		<button>Return</button>
-		<input type="text"></input>
-		<button>Add</button>
+		<button ng-click="return()">Return</button>
+	
+		<form ng-submit="add()">
+			<input type="text" ng-model="name" required placeholder="name"></input>
+			<input class="btn" type="submit" value="Add">
+			</form>
+
 		<ul>
 			<li ng-repeat="item in items">
 				<span>{{item.name}}</span>
-				<span><button>Delete</button></span>
+				<span><button ng-click="delete(item.id)">Delete</button></span>
 
 			</li>
 		</ul>

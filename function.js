@@ -84,6 +84,36 @@
 		$scope.showSection('start');
 
 	};
+	$scope.edit = function(){
+		$scope.showSection('edit');
+		$scope.hideSection('result');
+	}
+	$scope.delete = function(id){
+
+		angular.forEach($scope.items,function(value,key){
+			if(id==value.id){
+				$scope.items.splice(key,1);
+			}
+		})
+	}
+	$scope.add = function(item){
+		var last_id = lastid();
+		$scope.items.push({id:last_id,name:$scope.name,status:0})
+	}
+	$scope.return = function(){
+		$scope.showSection('start');
+		$scope.hideSection('edit');
+	}
+
+	function lastid(){
+		var id=0;
+		angular.forEach($scope.items,function(value,key){
+			if(id<value.id){
+				id = value.id
+			}
+		})
+		return ++id;
+	}
 	
 
 }]);
